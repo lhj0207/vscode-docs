@@ -41,8 +41,7 @@ Used only when launching the debuggee. For `attach`, this parameter does not cha
 
 - **Windows**: When set to true, it will spawn an external console. When set to false, it will use VS Code's integratedTerminal.
 - **Linux**: When set to true, it will notify VS Code to spawn an external console. When set to false, it will use VS Code's integratedTerminal.
-- **macOS**: When set to true, it will spawn an external console through `lldb-mi`. When set to false, the output can be seen in VS Code's debugConsole. Due to limitations within `lldb-mi`, integratedTerminal support is not available.
-
+- **macOS**: When set to true, it will spawn an external console through `lldb-mi`. However, due to limitations within `lldb-mi`, the direct opening of an external console is currently not possible. Further details can be found in issue #5079(vscode-cpptools).When set to false, under run mode, the integrated terminal of VS Code cannot be utilized due to restrictions imposed by `lldb-mi`.but the output can be viewed in debugConsole. In debug mode, it will resort to using the integrated terminal of VS Code.
 ### avoidWindowsConsoleRedirection
 
 In order to support VS Code's Integrated Terminal with gdb on Windows, the extension adds console redirection commands to the debuggee's arguments to have console input and output show up in the integrated terminal. Setting this option to `true` will disable it.
